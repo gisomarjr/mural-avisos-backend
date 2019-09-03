@@ -1,14 +1,7 @@
 # mural-avisos-backend
 DESAFIO - MURAL DE AVISOS
 
-PADRÃO DE TABELAS E SEQUENCES
-
-TABELA: TBNNN_NAME
-SEQUENCE: SQNNN_NAME
-SCHEMA: SM001_NAME
-
--
-Tecnologias aplicadas:
+- Tecnologias aplicadas:
 	- JAVA 8;
 	- Spring Data Rest;
 	- Hateoas
@@ -16,3 +9,8 @@ Tecnologias aplicadas:
 	- Hal Browser
 	- Postgresql
 	- Lombok
+
+- PADRÃO DE TABELAS E SEQUENCES
+	- TABELA: TBNNN_NAME
+	- SEQUENCE: SQNNN_NAME
+	- SCHEMA: SM001_NAME
