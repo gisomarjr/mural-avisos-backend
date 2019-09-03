@@ -1,14 +1,17 @@
 package com.avisos.mural.exception;
 
 import java.time.LocalDateTime;
-
 import org.springframework.http.HttpStatus;
+import lombok.Getter;
+import lombok.Setter;
 
 /**
  * Class model error specific default of system
  * @author Gisomar Jr.
  *
  */
+@Getter
+@Setter
 public class ErrorModel {
 
     private HttpStatus httpStatus;
@@ -24,21 +27,5 @@ public class ErrorModel {
         this.timestamp = LocalDateTime.now();
         this.message = message;
         this.details = details;
-    }
-
-    public HttpStatus getHttpStatus() {
-        return httpStatus;
-    }
-
-    public LocalDateTime getTimestamp() {
-        return timestamp;
-    }
-
-    public String getMessage() {
-        return message;
-    }
-
-    public String getDetails() {
-        return details;
     }
 }

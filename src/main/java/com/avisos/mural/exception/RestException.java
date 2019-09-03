@@ -1,5 +1,8 @@
 package com.avisos.mural.exception;
 
+import java.util.Set;
+import javax.validation.ConstraintViolation;
+import javax.validation.ConstraintViolationException;
 import org.springframework.data.rest.webmvc.RepositoryRestExceptionHandler;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
@@ -16,12 +19,25 @@ import org.springframework.web.servlet.mvc.method.annotation.ResponseEntityExcep
 @ControllerAdvice(basePackageClasses = RepositoryRestExceptionHandler.class)
 public class RestException extends ResponseEntityExceptionHandler {
 
-	@ExceptionHandler
+	@ExceptionHandler()
     ResponseEntity<ErrorModel> handle(Exception e) {
 		
-        return new ResponseEntity<ErrorModel>(
+		Throwable cause = e.getCause().getCause();
+		
+		if(cause instanceof ConstraintViolationException ) {
+			
+			Set<ConstraintViolation<?>> violationsList = ((ConstraintViolationException) cause).getConstraintViolations();
+			
+			 return new ResponseEntity<>(
+		        		new ErrorModel(
+		        				HttpStatus.INTERNAL_SERVER_ERROR, e.getLocalizedMessage(), violationsList.iterator().next().getMessageTemplate()),
+		        		new HttpHeaders(), HttpStatus.INTERNAL_SERVER_ERROR);
+		}
+		
+        return new ResponseEntity<>(
         		new ErrorModel(
-        				HttpStatus.INTERNAL_SERVER_ERROR, e.getLocalizedMessage(), e.getCause().getMessage()),
+        				HttpStatus.INTERNAL_SERVER_ERROR, "GENERICO", e.getMessage()),
         		new HttpHeaders(), HttpStatus.INTERNAL_SERVER_ERROR);
     }
+	
 }

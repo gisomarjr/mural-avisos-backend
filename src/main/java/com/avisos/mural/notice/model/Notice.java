@@ -31,6 +31,7 @@ public class Notice {
 	
 	@NotNull
 	@Column(name = "titulo", nullable = false, length = 250)
+	@NotBlank(message = "Favor informar o título")
 	private String title;
 	
 	@NotNull
