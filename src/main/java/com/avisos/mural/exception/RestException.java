@@ -36,7 +36,7 @@ public class RestException extends ResponseEntityExceptionHandler {
 		
         return new ResponseEntity<>(
         		new ErrorModel(
-        				HttpStatus.INTERNAL_SERVER_ERROR, "GENERICO", e.getMessage()),
+        				HttpStatus.INTERNAL_SERVER_ERROR,  HttpStatus.INTERNAL_SERVER_ERROR.name(), e.getMessage()),
         		new HttpHeaders(), HttpStatus.INTERNAL_SERVER_ERROR);
     }
 	
