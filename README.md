@@ -14,3 +14,11 @@ DESAFIO - MURAL DE AVISOS
 	- TABELA: TBNNN_NAME
 	- SEQUENCE: SQNNN_NAME
 	- SCHEMA: SM001_NAME
+
+- Iniciar Aplicação:
+	- mvn spring-boot:run
+	
+- Observação:
+	- Nome do banco de dados: postgres
+	- Usuário: postgres
+	- Senha: postgres
