@@ -1,4 +1,4 @@
-# mural-avisos-backend
+# MURAL DE AVISOS - BACKEND
 DESAFIO - MURAL DE AVISOS
 
 - Tecnologias aplicadas:
